@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import SingleStoryBoxDisplay from './SingleStoryBoxDisplay'
 import firebase from 'app/fire'
+<<<<<<< HEAD
+=======
+import 'firebase/database' // OB/FF: probably not necessary
+>>>>>>> origin/code-review-comments
 import _ from 'lodash'
 import {Link} from 'react-router-dom'
 import {onlyPublished} from '../utils/storyBranchNavUtils'
@@ -21,9 +25,13 @@ class AllStoryBranches extends Component {
     })
   }
 
+<<<<<<< HEAD
   componentWillUnmount() {
     this.listenerRef.off()
   }
+=======
+  // OB/FF: stop listening?
+>>>>>>> origin/code-review-comments
 
   render() {
     const { allStoryBranches } = this.state

@@ -26,6 +26,7 @@ export default class SingleStoryPage extends Component {
 
   componentDidMount() {
     const storyBranchId = this.props.match.params.branchId
+<<<<<<< HEAD
     firebase.database().ref(`storyBranch/${storyBranchId}`).once('value')
     .then(snap => {
       this.setState({currentStoryBranch: snap.val()})
@@ -42,6 +43,15 @@ export default class SingleStoryPage extends Component {
           }
         })
       })
+=======
+    firebase.database().ref(`storyBranch/${storyBranchId}`).once('value', snap => {
+      // OB/FF: undead code
+    //firebase.database().ref(`storyBranch/${storyBranchId}`).once('value', snap => {
+      const storyBranch = snap.val()
+      //console.log(storyBranch.storyCards)
+      this.props.handleCurrentStoryChange(storyBranchId, storyBranch)
+      //this.setState({currentStoryBranch: storyBranch})
+>>>>>>> origin/code-review-comments
     })
     // get tags for this story branch
     this.tagsListener = firebase.database().ref(`storyBranch/${this.props.match.params.branchId}/tags`)

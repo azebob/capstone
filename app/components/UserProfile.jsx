@@ -78,6 +78,7 @@ export default class UserProfile extends Component {
     this.unsubscribe()
   }
 
+  // OB/FF: if you can do an <a /> or a <Link /> instead that'd be ideal
   handleLink = (e, type) => {
     this.props.history.push(`/${type}`)
   }
@@ -103,8 +104,13 @@ export default class UserProfile extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { user, storyBranches, unpublishedCards, favorites, bookmarks, usersFollowed, resolvedDrafts } = this.state
     let cardKeys = Object.keys(unpublishedCards)
+=======
+    // OB/FF: don't need the _ here right?
+    const {user , _ , storyBranches} = this.state || {}
+>>>>>>> origin/code-review-comments
 
     return (
       <div className="container-fluid user-profile" >

@@ -24,6 +24,7 @@ import history from '../history'
 
 import _ from 'lodash'
 
+// OB/FF: consider splitting this up into a "state manager component" and a "presentational component"
 export default class WriteSpace extends Component {
   constructor(props) {
     super(props)
@@ -55,6 +56,7 @@ export default class WriteSpace extends Component {
       // to check for inputs -- can't be blank
       // and can't be more than 500 characters
     }
+<<<<<<< HEAD
   }
 
   componentDidMount() {
@@ -64,6 +66,35 @@ export default class WriteSpace extends Component {
         this.setState({
           card: Object.assign({}, this.state.card, {
             userId: user.uid
+=======
+    // OB/FF: class arrow functions
+    this.changeStoryText = this.changeStoryText.bind(this)
+    this.changeBranchTitle = this.changeBranchTitle.bind(this)
+
+    this.editTitle = this.editTitle.bind(this)
+    this.saveTitle = this.saveTitle.bind(this)
+
+    this.handleOpen = this.handleOpen.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+
+    this.saveStory = this.saveStory.bind(this)
+    this.publishStory = this.publishStory.bind(this)
+    this.clearStory = this.clearStory.bind(this)
+  }
+
+  componentDidMount() {
+    if (this.props.cardId) {
+      // OB/FF: could be `.once` (and/or stop listening later)
+      firebase.database().ref('storyCard').child(this.props.cardId).on('value', snap => {
+        if (!snap.val().published) {
+          // OB/FF: consider sanitizing HTML at this point
+          this.setState({card: snap.val()})
+        } else {
+          this.setState({
+            card: {
+              text: 'This card has already been published.'
+            }
+>>>>>>> origin/code-review-comments
           })
         })
       }
@@ -362,18 +393,35 @@ export default class WriteSpace extends Component {
                     </Link>
               }
               </div>
+<<<<<<< HEAD
             </div>
 
+=======
+          }
+
+          {
+            (this.state.card.rootTitle != '') && (
+              <div className="container">...A branch of <i>{this.state.card.rootTitle}</i></div>
+            )
+          }
+>>>>>>> origin/code-review-comments
             <ReactQuill value={this.state.card.text}
               onChange={this.changeStoryText}
               className="container container-fluid"
               style={{'height': '250px', 'marginBottom': '50px'}} />
           </div>
         </div>
+<<<<<<< HEAD
         <br />
         <div className="container container-fluid">
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
+=======
+        <div className="row">
+          <div className="col-sm-12 col-md-12 col-lg-12">
+            <div className="form-group container floatLeft">
+              {/* OB/FF: consider naming colors */}
+>>>>>>> origin/code-review-comments
               <RaisedButton key='save'
                 label="SAVE SCENE"
                 backgroundColor="#D2B48C"
@@ -430,3 +478,16 @@ export default class WriteSpace extends Component {
     )
   }
 }
+<<<<<<< HEAD
+=======
+
+// OB/FF: un-undead code?
+// <TextField
+// hintText="Name Your Story Line"
+// floatingLabelText="Title"
+// name="title"
+// fullWidth={true}
+// multiLine={true}
+// onChange={this.changeTitle}
+// />
+>>>>>>> origin/code-review-comments

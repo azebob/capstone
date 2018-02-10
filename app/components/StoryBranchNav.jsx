@@ -25,6 +25,7 @@ import _ from 'lodash'
 import {getStoryBranch, getStoryCard} from '../utils/storyBranchNavUtils'
 import history from '../history'
 
+// OB/FF: consider splitting into "stateful" and "presentational" components
 class StoryBranchNav extends Component {
   constructor(props) {
     super(props)
@@ -37,6 +38,14 @@ class StoryBranchNav extends Component {
       childParent: {},
       branchingPointIndex: 0
     }
+<<<<<<< HEAD
+=======
+    // OB/FF: can remove `.bind`-ings here because of arrow functions below
+    this.handleRightClick = this.handleRightClick.bind(this)
+    this.handleLeftClick = this.handleLeftClick.bind(this)
+    this.handleDownClick = this.handleDownClick.bind(this)
+    this.handleUpClick = this.handleUpClick.bind(this)
+>>>>>>> origin/code-review-comments
   }
 
   updateFullState = (branchId, cardId, info, branchingPointIndex) => {

@@ -28,6 +28,7 @@ class Routes extends Component {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/home" component={LandingPage} />
+<<<<<<< HEAD
             <Route exact path="/write" render={props => <WriteSpace isBranch={false} {...props} />} />
             <Route exact path="/write/:cardId" render={props => <WriteSpace isBranch={false} {...props} />} />
             <Route exact path="/write/continue/:storyBranch" render={props => <WriteSpace isBranch={false} {...props} />} />
@@ -37,6 +38,31 @@ class Routes extends Component {
             <Route exact path="/read/:branchId" component={SingleStoryPage} />
             <Route exact path="/read/:branchId/:cardId" component={BranchStepper} />
             <Route exact path="/story_tree/:branchId" component={StoryTree} />
+=======
+            <Route path="/write" component={WriteSpace} />
+            <Route exact path="/read" component={AllStoryBranches} />
+            <Route
+              exact path="/read/story_branch/:branchId"
+              render= {(props) => (
+                // OB/FF: move the state down / in
+                <SingleStoryPage
+                  {...props}
+                  handleCurrentStoryChange={this.handleCurrentStoryChange}
+                  currentStoryBranch={this.state.currentStoryBranch} />
+              )} />
+            {/* OB/FF: consider shortening URL (drop story_branch part) */}
+            <Route
+              exact path="/read/story_branch/:branchId/:cardId"
+              render={(props) => (
+                <StoryBranchNav
+                  {...props}
+                  handleCurrentStoryChange={this.handleCurrentStoryChange}
+                  currentStoryBranch={this.state.currentStoryBranch} />
+              )} />
+            {/* OB/FF: this is dead...... */}
+            <Route path="/read/:id" component={StoryBranchNav} />
+            <Route path="/search" component={Searchbar} />
+>>>>>>> origin/code-review-comments
             <Route path="/userProfile" component={UserProfile} />
             <Route exact path="/allUsers" component={AllUsers} />
             <Route path="/allUsers/:id" component={UserPage} />
