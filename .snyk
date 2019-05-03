@@ -1,0 +1,17 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.3
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - cookie-session > debug:
+        patched: '2019-05-03T08:54:39.994Z'
+  'npm:hoek:20180212':
+    - react-swipe > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > hoek:
+        patched: '2019-05-03T08:54:39.994Z'
+    - react-swipe > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
+        patched: '2019-05-03T08:54:39.994Z'
+    - react-swipe > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek:
+        patched: '2019-05-03T08:54:39.994Z'
+    - react-swipe > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
+        patched: '2019-05-03T08:54:39.994Z'
