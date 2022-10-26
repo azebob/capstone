@@ -21,7 +21,9 @@
     "test-watch": "npm run test -- --watch --reporter=min",
     "seed": "node db/seed.js",
     "lint": "esw . --ignore-path .gitignore --ext '.js,.jsx'",
-    "lint-watch": "npm run lint -- -w"
+    "lint-watch": "npm run lint -- -w",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -62,7 +64,7 @@
     "lodash": "^4.17.4",
     "material-ui": "^0.19.2",
     "material-ui-chip-input": "^0.17.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-github2": "^0.1.10",
@@ -90,7 +92,8 @@
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.18.2",
-    "treant-js": "^1.0.1"
+    "treant-js": "^1.0.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -116,5 +119,6 @@
     "volleyball": "^1.4.1",
     "webpack": "^2.2.1",
     "webpack-livereload-plugin": "^0.10.0"
-  }
+  },
+  "snyk": true
 }
